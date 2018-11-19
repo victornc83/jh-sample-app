@@ -1,0 +1,34 @@
+{
+    "name": "Impuesto",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "porcentaje",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "nombre",
+            "otherEntityName": "articulo",
+            "otherEntityRelationshipName": "impuesto"
+        }
+    ],
+    "changelogDate": "20181119183717",
+    "entityTableName": "impuesto",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "jhSampleApp",
+    "applications": "*",
+    "microserviceName": "jhSampleApp"
+}

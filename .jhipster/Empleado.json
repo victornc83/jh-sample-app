@@ -1,0 +1,63 @@
+{
+    "name": "Empleado",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apellido1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "apellido2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefono",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "salario",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "comisionPct",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "zona",
+            "otherEntityName": "zona",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "operacion",
+            "otherEntityName": "operacion",
+            "otherEntityRelationshipName": "empleado"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "cuenta",
+            "otherEntityName": "cuenta",
+            "otherEntityRelationshipName": "empleado"
+        }
+    ],
+    "changelogDate": "20181119183722",
+    "entityTableName": "empleado",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "jhSampleApp",
+    "applications": "*",
+    "microserviceName": "jhSampleApp"
+}

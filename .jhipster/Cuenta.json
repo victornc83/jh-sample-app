@@ -1,0 +1,52 @@
+{
+    "name": "Cuenta",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "descuento",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "gastos",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "total",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "operaciones",
+            "otherEntityName": "operacion",
+            "otherEntityRelationshipName": "cuenta"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "operacion",
+            "otherEntityName": "operacion",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "cuenta"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "empleado",
+            "otherEntityName": "empleado",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181119183724",
+    "entityTableName": "cuenta",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "jhSampleApp",
+    "applications": "*",
+    "microserviceName": "jhSampleApp"
+}

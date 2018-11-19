@@ -1,0 +1,30 @@
+{
+    "name": "Familia",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "nombre",
+            "otherEntityName": "articulo",
+            "otherEntityRelationshipName": "familia"
+        }
+    ],
+    "changelogDate": "20181119183718",
+    "entityTableName": "familia",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "jhSampleApp",
+    "applications": "*",
+    "microserviceName": "jhSampleApp"
+}

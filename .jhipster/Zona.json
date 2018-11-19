@@ -1,0 +1,30 @@
+{
+    "name": "Zona",
+    "fields": [
+        {
+            "fieldName": "zonaName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "empleado",
+            "otherEntityName": "empleado",
+            "otherEntityRelationshipName": "zona"
+        }
+    ],
+    "changelogDate": "20181119183721",
+    "entityTableName": "zona",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "jhSampleApp",
+    "applications": "*",
+    "microserviceName": "jhSampleApp"
+}

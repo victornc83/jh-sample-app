@@ -1,0 +1,31 @@
+{
+    "name": "Almacen",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "nombre",
+            "otherEntityName": "articulo",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "nombre"
+        }
+    ],
+    "changelogDate": "20181119183719",
+    "entityTableName": "almacen",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "jhSampleApp",
+    "applications": "*",
+    "microserviceName": "jhSampleApp"
+}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Articulo.
+    -->
+    <changeSet id="20181119183720-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="impuesto_id"
+                                 baseTableName="articulo"
+                                 constraintName="fk_articulo_impuesto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="impuesto"/>
+
+        <addForeignKeyConstraint baseColumnNames="familia_id"
+                                 baseTableName="articulo"
+                                 constraintName="fk_articulo_familia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="familia"/>
+
+        <addForeignKeyConstraint baseColumnNames="nombre_id"
+                                 baseTableName="articulo"
+                                 constraintName="fk_articulo_nombre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="familia"/>
+
+        <addForeignKeyConstraint baseColumnNames="impuesto_id"
+                                 baseTableName="articulo"
+                                 constraintName="fk_articulo_impuesto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="impuesto"/>
+
+        <addForeignKeyConstraint baseColumnNames="articulos_id"
+                                 baseTableName="articulo_nombre"
+                                 constraintName="fk_articulo_nombre_articulos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="articulo"/>
+        <addForeignKeyConstraint baseColumnNames="nombres_id"
+                                 baseTableName="articulo_nombre"
+                                 constraintName="fk_articulo_nombre_nombres_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="almacen"/>
+        
+    </changeSet>
+</databaseChangeLog>
