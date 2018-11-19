@@ -1,0 +1,87 @@
+
+entity Impuesto {
+	nombre String required
+    porcentaje Float
+}
+
+entity Familia {
+	nombre String required
+}
+
+entity Almacen {
+	nombre String required
+}
+
+entity Articulo {
+	nombre String required
+    descripcion String
+    precio Float required
+}
+
+entity Zona {
+	zonaName String required
+}
+
+entity Empleado {
+	nombre String,
+	apellido1 String,
+    apellido2 String,
+	email String,
+	telefono String,
+	salario Long,
+	comisionPct Long
+}
+
+entity Operacion {
+	fecha Instant,
+	accion Accion,
+    cantidad Long
+}
+
+entity Cuenta {
+	fecha Instant,
+	descuento Float,
+    gastos Float,
+    total Float
+}
+
+enum Accion {
+	ENTRADA,
+    SALIDA,
+    VENTA,
+    FIADO,
+    REGALADO
+}
+
+relationship OneToOne {
+	Articulo{nombre} to Familia,
+    Articulo{impuesto} to Impuesto
+    Operacion{articulo} to Articulo,
+    Operacion to Cuenta,
+}
+
+relationship OneToMany {
+	Familia{nombre} to Articulo,
+	Impuesto{nombre} to Articulo,
+    Empleado to Operacion{empleado},
+    Empleado to Cuenta,
+	Zona{empleado} to Empleado,
+    Cuenta{operaciones} to Operacion
+}
+
+relationship ManyToMany {
+	Articulo{nombre} to Almacen{nombre}
+}
+
+// Set pagination options
+paginate Operacion, Empleado with infinite-scroll
+paginate Cuenta with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Empleado, Cuenta
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
