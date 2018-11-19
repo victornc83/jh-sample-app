@@ -1,0 +1,71 @@
+{
+    "name": "Articulo",
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "descripcion",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "precio",
+            "fieldType": "Float",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "impuesto",
+            "otherEntityName": "impuesto",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "familia",
+            "otherEntityName": "familia",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "nombre",
+            "otherEntityName": "familia",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "articulo"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "impuesto",
+            "otherEntityName": "impuesto",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "articulo"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "nombre",
+            "relationshipName": "nombre",
+            "otherEntityName": "almacen",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20181119183720",
+    "entityTableName": "articulo",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "jhSampleApp",
+    "applications": "*",
+    "microserviceName": "jhSampleApp"
+}

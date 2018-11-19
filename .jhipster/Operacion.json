@@ -1,0 +1,58 @@
+{
+    "name": "Operacion",
+    "fields": [
+        {
+            "fieldName": "fecha",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "accion",
+            "fieldType": "Accion",
+            "fieldValues": "ENTRADA,SALIDA,VENTA,FIADO,REGALADO"
+        },
+        {
+            "fieldName": "cantidad",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "articulo",
+            "otherEntityName": "articulo",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "operacion"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "cuenta",
+            "otherEntityName": "cuenta",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "operacion"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "empleado",
+            "otherEntityName": "empleado",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "cuenta",
+            "otherEntityName": "cuenta",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181119183723",
+    "entityTableName": "operacion",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "jhSampleApp",
+    "applications": "*",
+    "microserviceName": "jhSampleApp"
+}
