@@ -32,10 +32,12 @@
     ],
     "relationships": [
         {
+            "relationshipType": "one-to-one",
             "relationshipName": "zona",
             "otherEntityName": "zona",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "empleado"
         },
         {
             "relationshipType": "one-to-many",
@@ -48,6 +50,12 @@
             "relationshipName": "cuenta",
             "otherEntityName": "cuenta",
             "otherEntityRelationshipName": "empleado"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "zona",
+            "otherEntityName": "zona",
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20181119183722",

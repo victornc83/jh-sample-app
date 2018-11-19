@@ -33,7 +33,7 @@ public class Familia implements Serializable {
 
     @OneToMany(mappedBy = "familia")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Articulo> nombres = new HashSet<>();
+    private Set<Articulo> articulos = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -56,29 +56,29 @@ public class Familia implements Serializable {
         this.nombre = nombre;
     }
 
-    public Set<Articulo> getNombres() {
-        return nombres;
+    public Set<Articulo> getArticulos() {
+        return articulos;
     }
 
-    public Familia nombres(Set<Articulo> articulos) {
-        this.nombres = articulos;
+    public Familia articulos(Set<Articulo> articulos) {
+        this.articulos = articulos;
         return this;
     }
 
-    public Familia addNombre(Articulo articulo) {
-        this.nombres.add(articulo);
+    public Familia addArticulo(Articulo articulo) {
+        this.articulos.add(articulo);
         articulo.setFamilia(this);
         return this;
     }
 
-    public Familia removeNombre(Articulo articulo) {
-        this.nombres.remove(articulo);
+    public Familia removeArticulo(Articulo articulo) {
+        this.articulos.remove(articulo);
         articulo.setFamilia(null);
         return this;
     }
 
-    public void setNombres(Set<Articulo> articulos) {
-        this.nombres = articulos;
+    public void setArticulos(Set<Articulo> articulos) {
+        this.articulos = articulos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

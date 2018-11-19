@@ -22,20 +22,8 @@
     ],
     "relationships": [
         {
-            "relationshipName": "impuesto",
-            "otherEntityName": "impuesto",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
-            "relationshipName": "familia",
-            "otherEntityName": "familia",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
-        },
-        {
             "relationshipType": "one-to-one",
-            "relationshipName": "nombre",
+            "relationshipName": "familia",
             "otherEntityName": "familia",
             "otherEntityField": "id",
             "ownerSide": true,
@@ -51,11 +39,23 @@
         },
         {
             "relationshipType": "many-to-many",
-            "otherEntityRelationshipName": "nombre",
-            "relationshipName": "nombre",
+            "otherEntityRelationshipName": "id",
+            "relationshipName": "id",
             "otherEntityName": "almacen",
             "otherEntityField": "id",
             "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "familia",
+            "otherEntityName": "familia",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "impuesto",
+            "otherEntityName": "impuesto",
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20181119183720",

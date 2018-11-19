@@ -41,14 +41,14 @@ public class Operacion implements Serializable {
     private Articulo articulo;
 
     @OneToOne    @JoinColumn(unique = true)
-    private Cuenta cuenta;
+    private Empleado empleado;
 
     @ManyToOne
     @JsonIgnoreProperties("operacions")
     private Empleado empleado;
 
     @ManyToOne
-    @JsonIgnoreProperties("operaciones")
+    @JsonIgnoreProperties("operacions")
     private Cuenta cuenta;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -112,17 +112,17 @@ public class Operacion implements Serializable {
         this.articulo = articulo;
     }
 
-    public Cuenta getCuenta() {
-        return cuenta;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public Operacion cuenta(Cuenta cuenta) {
-        this.cuenta = cuenta;
+    public Operacion empleado(Empleado empleado) {
+        this.empleado = empleado;
         return this;
     }
 
-    public void setCuenta(Cuenta cuenta) {
-        this.cuenta = cuenta;
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     public Empleado getEmpleado() {

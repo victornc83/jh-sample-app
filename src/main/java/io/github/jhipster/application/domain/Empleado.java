@@ -48,8 +48,7 @@ public class Empleado implements Serializable {
     @Column(name = "comision_pct")
     private Long comisionPct;
 
-    @ManyToOne
-    @JsonIgnoreProperties("empleados")
+    @OneToOne    @JoinColumn(unique = true)
     private Zona zona;
 
     @OneToMany(mappedBy = "empleado")
@@ -58,6 +57,10 @@ public class Empleado implements Serializable {
     @OneToMany(mappedBy = "empleado")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Cuenta> cuentas = new HashSet<>();
+    @ManyToOne
+    @JsonIgnoreProperties("empleados")
+    private Zona zona;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -219,6 +222,19 @@ public class Empleado implements Serializable {
 
     public void setCuentas(Set<Cuenta> cuentas) {
         this.cuentas = cuentas;
+    }
+
+    public Zona getZona() {
+        return zona;
+    }
+
+    public Empleado zona(Zona zona) {
+        this.zona = zona;
+        return this;
+    }
+
+    public void setZona(Zona zona) {
+        this.zona = zona;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

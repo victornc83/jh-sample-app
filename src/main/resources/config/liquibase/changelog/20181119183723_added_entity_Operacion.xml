@@ -34,8 +34,8 @@
             </column>
             <column name="articulo_id" type="bigint">
                 <constraints unique="true" nullable="true" uniqueConstraintName="ux_operacion_articulo_id" />
-            </column>            <column name="cuenta_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_operacion_cuenta_id" />
+            </column>            <column name="empleado_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_operacion_empleado_id" />
             </column>
             <column name="empleado_id" type="bigint">
                 <constraints nullable="true" />

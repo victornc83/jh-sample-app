@@ -21,8 +21,6 @@ import java.net.URISyntaxException;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 /**
  * REST controller for managing Cuenta.
@@ -87,19 +85,11 @@ public class CuentaResource {
      * GET  /cuentas : get all the cuentas.
      *
      * @param pageable the pagination information
-     * @param filter the filter of the request
      * @return the ResponseEntity with status 200 (OK) and the list of cuentas in body
      */
     @GetMapping("/cuentas")
     @Timed
-    public ResponseEntity<List<Cuenta>> getAllCuentas(Pageable pageable, @RequestParam(required = false) String filter) {
-        if ("operacion-is-null".equals(filter)) {
-            log.debug("REST request to get all Cuentas where operacion is null");
-            return new ResponseEntity<>(StreamSupport
-                .stream(cuentaRepository.findAll().spliterator(), false)
-                .filter(cuenta -> cuenta.getOperacion() == null)
-                .collect(Collectors.toList()), HttpStatus.OK);
-        }
+    public ResponseEntity<List<Cuenta>> getAllCuentas(Pageable pageable) {
         log.debug("REST request to get a page of Cuentas");
         Page<Cuenta> page = cuentaRepository.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(page, "/api/cuentas");

@@ -20,16 +20,17 @@
     ],
     "relationships": [
         {
-            "relationshipType": "one-to-many",
-            "relationshipName": "operaciones",
-            "otherEntityName": "operacion",
+            "relationshipType": "one-to-one",
+            "relationshipName": "empleado",
+            "otherEntityName": "empleado",
+            "otherEntityField": "id",
+            "ownerSide": true,
             "otherEntityRelationshipName": "cuenta"
         },
         {
-            "relationshipType": "one-to-one",
+            "relationshipType": "one-to-many",
             "relationshipName": "operacion",
             "otherEntityName": "operacion",
-            "ownerSide": false,
             "otherEntityRelationshipName": "cuenta"
         },
         {

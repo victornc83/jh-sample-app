@@ -12,10 +12,10 @@
     "relationships": [
         {
             "relationshipType": "many-to-many",
-            "relationshipName": "nombre",
+            "relationshipName": "id",
             "otherEntityName": "articulo",
             "ownerSide": false,
-            "otherEntityRelationshipName": "nombre"
+            "otherEntityRelationshipName": "id"
         }
     ],
     "changelogDate": "20181119183719",

@@ -36,7 +36,7 @@ public class Impuesto implements Serializable {
 
     @OneToMany(mappedBy = "impuesto")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Articulo> nombres = new HashSet<>();
+    private Set<Articulo> articulos = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -72,29 +72,29 @@ public class Impuesto implements Serializable {
         this.porcentaje = porcentaje;
     }
 
-    public Set<Articulo> getNombres() {
-        return nombres;
+    public Set<Articulo> getArticulos() {
+        return articulos;
     }
 
-    public Impuesto nombres(Set<Articulo> articulos) {
-        this.nombres = articulos;
+    public Impuesto articulos(Set<Articulo> articulos) {
+        this.articulos = articulos;
         return this;
     }
 
-    public Impuesto addNombre(Articulo articulo) {
-        this.nombres.add(articulo);
+    public Impuesto addArticulo(Articulo articulo) {
+        this.articulos.add(articulo);
         articulo.setImpuesto(this);
         return this;
     }
 
-    public Impuesto removeNombre(Articulo articulo) {
-        this.nombres.remove(articulo);
+    public Impuesto removeArticulo(Articulo articulo) {
+        this.articulos.remove(articulo);
         articulo.setImpuesto(null);
         return this;
     }
 
-    public void setNombres(Set<Articulo> articulos) {
-        this.nombres = articulos;
+    public void setArticulos(Set<Articulo> articulos) {
+        this.articulos = articulos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

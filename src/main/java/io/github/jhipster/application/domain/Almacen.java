@@ -31,10 +31,10 @@ public class Almacen implements Serializable {
     @Column(name = "nombre", nullable = false)
     private String nombre;
 
-    @ManyToMany(mappedBy = "nombres")
+    @ManyToMany(mappedBy = "ids")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnore
-    private Set<Articulo> nombres = new HashSet<>();
+    private Set<Articulo> ids = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -58,29 +58,29 @@ public class Almacen implements Serializable {
         this.nombre = nombre;
     }
 
-    public Set<Articulo> getNombres() {
-        return nombres;
+    public Set<Articulo> getIds() {
+        return ids;
     }
 
-    public Almacen nombres(Set<Articulo> articulos) {
-        this.nombres = articulos;
+    public Almacen ids(Set<Articulo> articulos) {
+        this.ids = articulos;
         return this;
     }
 
-    public Almacen addNombre(Articulo articulo) {
-        this.nombres.add(articulo);
-        articulo.getNombres().add(this);
+    public Almacen addId(Articulo articulo) {
+        this.ids.add(articulo);
+        articulo.getIds().add(this);
         return this;
     }
 
-    public Almacen removeNombre(Articulo articulo) {
-        this.nombres.remove(articulo);
-        articulo.getNombres().remove(this);
+    public Almacen removeId(Articulo articulo) {
+        this.ids.remove(articulo);
+        articulo.getIds().remove(this);
         return this;
     }
 
-    public void setNombres(Set<Articulo> articulos) {
-        this.nombres = articulos;
+    public void setIds(Set<Articulo> articulos) {
+        this.ids = articulos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
