@@ -54,23 +54,25 @@ enum Accion {
 }
 
 relationship OneToOne {
-	Articulo{nombre} to Familia,
-    Articulo{impuesto} to Impuesto
+	Articulo{familia} to Familia,
+    Articulo{impuesto} to Impuesto,
     Operacion{articulo} to Articulo,
-    Operacion to Cuenta,
+    Operacion{empleado} to Empleado,
+    Cuenta{empleado} to Empleado
+    Empleado{zona} to Zona
 }
 
 relationship OneToMany {
-	Familia{nombre} to Articulo,
-	Impuesto{nombre} to Articulo,
-    Empleado to Operacion{empleado},
+	Familia to Articulo,
+	Impuesto to Articulo,
+    Empleado to Operacion,
     Empleado to Cuenta,
-	Zona{empleado} to Empleado,
-    Cuenta{operaciones} to Operacion
+	Zona to Empleado,
+    Cuenta to Operacion
 }
 
 relationship ManyToMany {
-	Articulo{nombre} to Almacen{nombre}
+	Articulo{id} to Almacen{id}
 }
 
 // Set pagination options
