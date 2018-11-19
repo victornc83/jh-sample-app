@@ -40,13 +40,12 @@ public class Cuenta implements Serializable {
     @Column(name = "total")
     private Float total;
 
+    @OneToOne    @JoinColumn(unique = true)
+    private Empleado empleado;
+
     @OneToMany(mappedBy = "cuenta")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Operacion> operaciones = new HashSet<>();
-    @OneToOne(mappedBy = "cuenta")
-    @JsonIgnore
-    private Operacion operacion;
-
+    private Set<Operacion> operacions = new HashSet<>();
     @ManyToOne
     @JsonIgnoreProperties("cuentas")
     private Empleado empleado;
@@ -112,42 +111,42 @@ public class Cuenta implements Serializable {
         this.total = total;
     }
 
-    public Set<Operacion> getOperaciones() {
-        return operaciones;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public Cuenta operaciones(Set<Operacion> operacions) {
-        this.operaciones = operacions;
+    public Cuenta empleado(Empleado empleado) {
+        this.empleado = empleado;
         return this;
     }
 
-    public Cuenta addOperaciones(Operacion operacion) {
-        this.operaciones.add(operacion);
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public Set<Operacion> getOperacions() {
+        return operacions;
+    }
+
+    public Cuenta operacions(Set<Operacion> operacions) {
+        this.operacions = operacions;
+        return this;
+    }
+
+    public Cuenta addOperacion(Operacion operacion) {
+        this.operacions.add(operacion);
         operacion.setCuenta(this);
         return this;
     }
 
-    public Cuenta removeOperaciones(Operacion operacion) {
-        this.operaciones.remove(operacion);
+    public Cuenta removeOperacion(Operacion operacion) {
+        this.operacions.remove(operacion);
         operacion.setCuenta(null);
         return this;
     }
 
-    public void setOperaciones(Set<Operacion> operacions) {
-        this.operaciones = operacions;
-    }
-
-    public Operacion getOperacion() {
-        return operacion;
-    }
-
-    public Cuenta operacion(Operacion operacion) {
-        this.operacion = operacion;
-        return this;
-    }
-
-    public void setOperacion(Operacion operacion) {
-        this.operacion = operacion;
+    public void setOperacions(Set<Operacion> operacions) {
+        this.operacions = operacions;
     }
 
     public Empleado getEmpleado() {

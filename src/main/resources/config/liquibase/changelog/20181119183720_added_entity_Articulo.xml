@@ -32,24 +32,24 @@
             <column name="precio" type="${floatType}">
                 <constraints nullable="false" />
             </column>
+            <column name="familia_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_articulo_familia_id" />
+            </column>            <column name="impuesto_id" type="bigint">
+                <constraints unique="true" nullable="true" uniqueConstraintName="ux_articulo_impuesto_id" />
+            </column>
+            <column name="familia_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
 
             <column name="impuesto_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 
-            <column name="familia_id" type="bigint">
-                <constraints nullable="true" />
-            </column>
-            <column name="nombre_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_articulo_nombre_id" />
-            </column>            <column name="impuesto_id" type="bigint">
-                <constraints unique="true" nullable="true" uniqueConstraintName="ux_articulo_impuesto_id" />
-            </column>
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         
-        <createTable tableName="articulo_nombre">
-            <column name="nombres_id" type="bigint">
+        <createTable tableName="articulo_id">
+            <column name="ids_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
             <column name="articulos_id" type="bigint">
@@ -57,7 +57,7 @@
             </column>
         </createTable>
 
-        <addPrimaryKey columnNames="articulos_id, nombres_id" tableName="articulo_nombre"/>
+        <addPrimaryKey columnNames="articulos_id, ids_id" tableName="articulo_id"/>
         
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->

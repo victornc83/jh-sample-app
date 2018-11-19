@@ -26,8 +26,8 @@
         },
         {
             "relationshipType": "one-to-one",
-            "relationshipName": "cuenta",
-            "otherEntityName": "cuenta",
+            "relationshipName": "empleado",
+            "otherEntityName": "empleado",
             "otherEntityField": "id",
             "ownerSide": true,
             "otherEntityRelationshipName": "operacion"
@@ -39,9 +39,9 @@
             "otherEntityField": "id"
         },
         {
+            "relationshipType": "many-to-one",
             "relationshipName": "cuenta",
             "otherEntityName": "cuenta",
-            "relationshipType": "many-to-one",
             "otherEntityField": "id"
         }
     ],

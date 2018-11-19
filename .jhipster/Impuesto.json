@@ -16,7 +16,7 @@
     "relationships": [
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "nombre",
+            "relationshipName": "articulo",
             "otherEntityName": "articulo",
             "otherEntityRelationshipName": "impuesto"
         }

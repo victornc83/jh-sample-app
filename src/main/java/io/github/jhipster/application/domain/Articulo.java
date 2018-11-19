@@ -38,26 +38,26 @@ public class Articulo implements Serializable {
     @Column(name = "precio", nullable = false)
     private Float precio;
 
-    @ManyToOne
-    @JsonIgnoreProperties("nombres")
-    private Impuesto impuesto;
-
-    @ManyToOne
-    @JsonIgnoreProperties("nombres")
-    private Familia familia;
-
     @OneToOne    @JoinColumn(unique = true)
-    private Familia nombre;
+    private Familia familia;
 
     @OneToOne    @JoinColumn(unique = true)
     private Impuesto impuesto;
 
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "articulo_nombre",
+    @JoinTable(name = "articulo_id",
                joinColumns = @JoinColumn(name = "articulos_id", referencedColumnName = "id"),
-               inverseJoinColumns = @JoinColumn(name = "nombres_id", referencedColumnName = "id"))
-    private Set<Almacen> nombres = new HashSet<>();
+               inverseJoinColumns = @JoinColumn(name = "ids_id", referencedColumnName = "id"))
+    private Set<Almacen> ids = new HashSet<>();
+
+    @ManyToOne
+    @JsonIgnoreProperties("articulos")
+    private Familia familia;
+
+    @ManyToOne
+    @JsonIgnoreProperties("articulos")
+    private Impuesto impuesto;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -107,6 +107,19 @@ public class Articulo implements Serializable {
         this.precio = precio;
     }
 
+    public Familia getFamilia() {
+        return familia;
+    }
+
+    public Articulo familia(Familia familia) {
+        this.familia = familia;
+        return this;
+    }
+
+    public void setFamilia(Familia familia) {
+        this.familia = familia;
+    }
+
     public Impuesto getImpuesto() {
         return impuesto;
     }
@@ -118,6 +131,31 @@ public class Articulo implements Serializable {
 
     public void setImpuesto(Impuesto impuesto) {
         this.impuesto = impuesto;
+    }
+
+    public Set<Almacen> getIds() {
+        return ids;
+    }
+
+    public Articulo ids(Set<Almacen> almacens) {
+        this.ids = almacens;
+        return this;
+    }
+
+    public Articulo addId(Almacen almacen) {
+        this.ids.add(almacen);
+        almacen.getIds().add(this);
+        return this;
+    }
+
+    public Articulo removeId(Almacen almacen) {
+        this.ids.remove(almacen);
+        almacen.getIds().remove(this);
+        return this;
+    }
+
+    public void setIds(Set<Almacen> almacens) {
+        this.ids = almacens;
     }
 
     public Familia getFamilia() {
@@ -133,19 +171,6 @@ public class Articulo implements Serializable {
         this.familia = familia;
     }
 
-    public Familia getNombre() {
-        return nombre;
-    }
-
-    public Articulo nombre(Familia familia) {
-        this.nombre = familia;
-        return this;
-    }
-
-    public void setNombre(Familia familia) {
-        this.nombre = familia;
-    }
-
     public Impuesto getImpuesto() {
         return impuesto;
     }
@@ -157,31 +182,6 @@ public class Articulo implements Serializable {
 
     public void setImpuesto(Impuesto impuesto) {
         this.impuesto = impuesto;
-    }
-
-    public Set<Almacen> getNombres() {
-        return nombres;
-    }
-
-    public Articulo nombres(Set<Almacen> almacens) {
-        this.nombres = almacens;
-        return this;
-    }
-
-    public Articulo addNombre(Almacen almacen) {
-        this.nombres.add(almacen);
-        almacen.getNombres().add(this);
-        return this;
-    }
-
-    public Articulo removeNombre(Almacen almacen) {
-        this.nombres.remove(almacen);
-        almacen.getNombres().remove(this);
-        return this;
-    }
-
-    public void setNombres(Set<Almacen> almacens) {
-        this.nombres = almacens;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
